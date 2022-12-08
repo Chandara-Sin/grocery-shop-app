@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:grocery_shop_app/screens/home_page.dart';
 
 class IntroPage extends StatelessWidget {
   const IntroPage({super.key});
@@ -32,7 +33,8 @@ class IntroPage extends StatelessWidget {
           ),
           const Spacer(),
           GestureDetector(
-            onTap: () => {},
+            onTap: () => Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: ((context) => const HomePage()))),
             child: Container(
               decoration: BoxDecoration(
                   color: Colors.deepPurple,
