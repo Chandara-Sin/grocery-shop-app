@@ -17,12 +17,12 @@ class IntroPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(24.0),
-            child: Text("We deliver groceries at your doorstep",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.notoSerif(
-                    fontSize: 36, fontWeight: FontWeight.bold)
-                // TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-                ),
+            child: Text(
+              "We deliver groceries at your doorstep",
+              textAlign: TextAlign.center,
+              style: GoogleFonts.notoSerif(
+                  fontSize: 36, fontWeight: FontWeight.bold),
+            ),
           ),
           const SizedBox(
             height: 24,

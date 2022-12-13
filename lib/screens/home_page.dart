@@ -12,47 +12,48 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        const SizedBox(
-          height: 48,
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Text(
-            "Good Morning,",
-            style: TextStyle(fontSize: 16),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const SizedBox(
+            height: 48,
           ),
-        ),
-        const SizedBox(
-          height: 4,
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Text("Let's order fresh items for you",
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
+            child: Text(
+              "Good Morning,",
+              style: TextStyle(fontSize: 16),
+            ),
+          ),
+          const SizedBox(
+            height: 4,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Text(
+              "Let's order fresh items for you",
               style: GoogleFonts.notoSerif(
-                  fontSize: 36, fontWeight: FontWeight.bold)),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Divider(
-            thickness: 2,
+                  fontSize: 36, fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-        const SizedBox(height: 24),
-        const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Text(
-            "Fresh Items",
-            style: TextStyle(fontSize: 24),
+          const SizedBox(
+            height: 20,
           ),
-        ),
-        Expanded(
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
+            child: Divider(
+              thickness: 2,
+            ),
+          ),
+          const SizedBox(height: 24),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24.0),
+            child: Text(
+              "Fresh Items",
+              style: TextStyle(fontSize: 22),
+            ),
+          ),
+          Expanded(
             child: Consumer<CartModel>(
-                builder: ((context, value, child) => GridView.builder(
+              builder: ((context, value, child) => GridView.builder(
                     itemCount: value.shopItems.length,
                     padding: const EdgeInsets.all(12),
                     gridDelegate:
@@ -63,11 +64,15 @@ class HomePage extends StatelessWidget {
                           itemPrice: value.shopItems[index][1],
                           imgPath: value.shopItems[index][2],
                           color: value.shopItems[index][3],
-                        ))))))
-      ])),
+                        )),
+                  )),
+            ),
+          ),
+        ]),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.blue,
         child: const Icon(Icons.shopping_bag),
       ),
     );
