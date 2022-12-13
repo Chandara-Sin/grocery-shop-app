@@ -51,6 +51,7 @@ class HomePage extends StatelessWidget {
             child: Consumer<CartModel>(
                 builder: ((context, value, child) => GridView.builder(
                     itemCount: value.shopItems.length,
+                    padding: const EdgeInsets.all(12),
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2),

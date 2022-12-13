@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class GroceryItemTile extends StatelessWidget {
@@ -14,8 +15,35 @@ class GroceryItemTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(children: [Image.asset(imgPath)]),
+    return Padding(
+      padding: const EdgeInsets.all(12.0),
+      child: Container(
+        decoration: BoxDecoration(
+            color: color.withOpacity(0.1),
+            borderRadius: BorderRadius.circular(12)),
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Image.asset(
+            imgPath,
+            height: 64,
+          ),
+          Text(
+            itemName,
+            style: const TextStyle(fontSize: 20),
+          ),
+          MaterialButton(
+            onPressed: () {},
+            color: color.withOpacity(0.8),
+            child: Text(
+              "\$$itemPrice",
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
+          )
+        ]),
+      ),
     );
   }
 }
