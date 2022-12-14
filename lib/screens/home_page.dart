@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_shop_app/models/cart_model.dart';
+import 'package:grocery_shop_app/screens/cart_page.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/grocery_item_tile.dart';
@@ -71,7 +72,8 @@ class HomePage extends StatelessWidget {
         ]),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const CartPage())),
         backgroundColor: Colors.blue,
         child: const Icon(Icons.shopping_bag),
       ),
