@@ -13,66 +13,69 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const SizedBox(
-            height: 48,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: Text(
-              "Good Morning,",
-              style: TextStyle(fontSize: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 48,
             ),
-          ),
-          const SizedBox(
-            height: 4,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Text(
-              "Let's order fresh items for you",
-              style: GoogleFonts.notoSerif(
-                  fontSize: 36, fontWeight: FontWeight.bold),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                "Good Morning,",
+                style: TextStyle(fontSize: 16),
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: Divider(
-              thickness: 2,
+            const SizedBox(
+              height: 4,
             ),
-          ),
-          const SizedBox(height: 24),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: Text(
-              "Fresh Items",
-              style: TextStyle(fontSize: 22),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                "Let's order fresh items for you",
+                style: GoogleFonts.notoSerif(
+                    fontSize: 36, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Expanded(
-            child: Consumer<CartModel>(
-              builder: ((context, value, child) => GridView.builder(
-                    itemCount: value.shopItems.length,
-                    padding: const EdgeInsets.all(12),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2, childAspectRatio: 1 / 1.3),
-                    itemBuilder: ((context, index) => GroceryItemTile(
-                          itemName: value.shopItems[index][0],
-                          itemPrice: value.shopItems[index][1],
-                          imgPath: value.shopItems[index][2],
-                          color: value.shopItems[index][3],
-                          onPressed: () =>
-                              Provider.of<CartModel>(context, listen: false)
-                                  .addItemToCart(index),
-                        )),
-                  )),
+            const SizedBox(
+              height: 20,
             ),
-          ),
-        ]),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Divider(
+                thickness: 2,
+              ),
+            ),
+            const SizedBox(height: 24),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                "Fresh Items",
+                style: TextStyle(fontSize: 22),
+              ),
+            ),
+            Expanded(
+              child: Consumer<CartModel>(
+                builder: ((context, value, child) => GridView.builder(
+                      itemCount: value.shopItems.length,
+                      padding: const EdgeInsets.all(12),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2, childAspectRatio: 1 / 1.3),
+                      itemBuilder: ((context, index) => GroceryItemTile(
+                            itemName: value.shopItems[index][0],
+                            itemPrice: value.shopItems[index][1],
+                            imgPath: value.shopItems[index][2],
+                            color: value.shopItems[index][3],
+                            onPressed: () =>
+                                Provider.of<CartModel>(context, listen: false)
+                                    .addItemToCart(index),
+                          )),
+                    )),
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.push(
